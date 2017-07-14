@@ -165,18 +165,6 @@ on init
     chown system system /sys/class/camerafs/node/thermal_meter1
     chown system system /sys/class/camerafs/node/thermal_meter2
 
-    write /sys/class/devfreq/ddrfreq/min_freq 400000000
-    write /sys/class/devfreq/ddrfreq/max_freq 1866000000
-
-    write /sys/class/devfreq/ddrfreq_latency/min_freq 400000000
-    write /sys/class/devfreq/ddrfreq_latency/max_freq 1866000000
-
-    write /sys/class/devfreq/ddrfreq_up_threshold/max_freq 1866000000
-    write /sys/class/devfreq/ddrfreq_up_threshold/min_freq 1866000000
-
-    write /sys/class/devfreq/gpufreq/max_freq 1037000000
-    write /sys/class/devfreq/gpufreq/min_freq 400000000
-
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1844000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 533000
 
