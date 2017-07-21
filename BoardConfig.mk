@@ -67,3 +67,5 @@ TW_BRIGHTNESS_PATH := /sys/class/leds/lcd_backlight0/brightness
 TW_CUSTOM_BATTERY_PATH := /sys/class/power_supply/Battery
 TW_DEVICE_VERSION := 1
 TW_EXCLUDE_SUPERSU := true
+TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
