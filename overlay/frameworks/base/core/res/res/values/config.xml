@@ -311,4 +311,7 @@
          provisioning, availability etc -->
     <bool name="config_carrier_wfc_ims_available">true</bool>
 
+    <!--  Define Google play service package for FRP-->
+    <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
+
 </resources>
