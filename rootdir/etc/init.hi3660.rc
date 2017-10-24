@@ -1184,12 +1184,6 @@ service cs-set /vendor/bin/cs-set
     disabled
     oneshot
 
-service chr_logd /vendor/bin/chr_logd
-    class main
-    user system
-    group system root bluetooth wifi
-    disabled
-
 service octty /vendor/bin/octty
     class core
     user system
@@ -1202,12 +1196,6 @@ service oam_hisi /vendor/bin/oam_hisi
     group system root wifi bluetooth
     disabled
     oneshot
-
-service fm_server_hisi /vendor/bin/fm_server_hisi
-    class main
-    user system
-    group system
-    disabled
 
 service hisi_bfg /vendor/bin/start_connectivity_hisi
     class late_start
@@ -1251,7 +1239,7 @@ service fingerprintd /system/bin/fingerprintd
     group input
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant_hisi.conf \
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
@@ -1280,13 +1268,6 @@ service hostapd_bin /vendor/bin/hostapd_hisi -d /data/misc/wifi/hostapd_hisi.con
     disabled
     oneshot
 
-service modemlogcat_VIA /vendor/bin/modemlogcat_via -t /dev/ttySPI1 -p /data/log/cp_log/ -r 30 -n 9
-    class late_start
-    user root
-    group system
-    disabled
-    oneshot
-
 service atcmdserver /vendor/bin/atcmdserver
     class main
     disabled
@@ -1302,63 +1283,10 @@ service diagserver /vendor/bin/diagserver
     user root
     disabled
 
-service hwnffserver /vendor/bin/hwnffserver
-    class main
-    socket hwnff stream 0660 root mount
-
-service data_cleanner /vendor/bin/data_cleaner
-    class core
-    oneshot
-
-service hiscoutmanager /vendor/bin/hiscoutmanager
-    class late_start
-    user root
-    group system
-    oneshot
-	
-service iked /vendor/bin/iked
-    class late_start
-    user root
-    disabled
-    group system
-	
-on property:ro.config.hw_vowifi=true
-    start iked
-	
 service imonitor /system/bin/imonitor
     class late_start
     user root
     group system log
-    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
-
-service isplogcat /vendor/bin/isplogcat
-    class late_start
-    user root
-    group system
-    disabled
-    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
-
-service chargelogcat /vendor/bin/chargelogcat -r 4096 -n 5 -z 4 -t 5 -p /data/log/charge-log/
-    class late_start
-    user system
-    group system
-    disabled
-    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
-
-service modemlogcat /vendor/bin/modemlogcat_lte -z -l
-    class late_start
-    user root
-    group system
-    disabled
-    oneshot
-    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
-
-service modematserver /vendor/bin/modemlogcat_lte -f hidp
-    class late_start
-    user root
-    group system
-    disabled
-    oneshot
     writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
 
 service thermal-daemon /vendor/bin/thermal-daemon
@@ -1370,26 +1298,6 @@ service limit_current /vendor/bin/limit_current -l
     user system
     group system
     disabled
-
-service hwpged /system/bin/hwpged
-    class main
-    socket MsgHubSock stream 0660 root system
-    socket iawared seqpacket 0660 system system
-    user root
-    group readproc
-
-service powerlogd /system/bin/powerlogd
-    class core
-    socket powerlogd stream 0600 system system
-    socket powerlogdr seqpacket 0600 system system
-    socket powerlogdw dgram 0220 system system
-    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
-
-service chargemonitor /vendor/bin/chargemonitor
-    class late_start
-    user system
-    group system
-    writepid /dev/cpuset/system-background/tasks /dev/cpuctl/bg_non_interactive/tasks
 
 service bastetd /vendor/bin/bastetd
     class main
@@ -1462,8 +1370,6 @@ on property:setup_hi110x_modules=success
     write /dev/kmsg "sup120clientd has started"
     start watchlssd
     write /dev/kmsg "watchlssd has started"
-    start fm_server_hisi
-    write /dev/kmsg "fm_server_hisi has started"
 
 on property:bluetooth.log.file.create=true
    mkdir /data/log/bt
@@ -1512,14 +1418,6 @@ on property:persist.sys.huawei.debug.on=1
     chown system audio /dev/voice_proxy_vowifi
     chmod 0660 /dev/voice_proxy_vowifi
     write /proc/sys/net/ipv4/ip_local_reserved_ports 31000-31050
-
-service aptouch /vendor/bin/aptouch_daemon
-    class main
-    disabled
-    user root
-
-on property:thp.service_enable=1
-    start aptouch
 
 service thermshex /vendor/bin/shex -u /product/etc/hwpg/sensorhub_thermald.xml -t
     user root
