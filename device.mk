@@ -144,6 +144,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
+# Snap
+PRODUCT_PACKAGES += \
+    Snap
+
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
