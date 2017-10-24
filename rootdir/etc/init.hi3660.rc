@@ -588,6 +588,9 @@ on boot
     start cs-set
     start gpsdaemon
 
+    chown root radio /proc/cmdline
+    chmod 0666 /proc/cmdline
+
     chown  system  system  /sys/devices/platform/fingerprint/read_image_flag
     chmod  0660  /sys/devices/platform/fingerprint/read_image_flag
     chown  system  system  /sys/devices/platform/fingerprint/nav
