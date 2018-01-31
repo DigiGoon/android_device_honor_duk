@@ -1,1 +1,3 @@
-add_lunch_combo lineage_duk-userdebug
+add_lunch_combo omni_duk-user
+add_lunch_combo omni_duk-userdebug
+add_lunch_combo omni_duk-eng
