@@ -133,9 +133,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     power.hi3660
 
-# Doze
-PRODUCT_PACKAGES += \
-    HisiDoze
 
 PRODUCT_PACKAGES += \
     libxml2

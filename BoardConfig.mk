@@ -66,14 +66,17 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-# Charger 
+# Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := /sys/class/leds/lcd_backlight0/brightness
 
 # CMHW
 BOARD_HARDWARE_CLASS := \
-    $(LOCAL_PATH)/cmhw \
-    hardware/cyanogen/cmhw
+    $(LOCAL_PATH)/cmhw
+
+# Dexpreopt
+TARGET_FORCE_DEXPREOPT := false
+WITH_DEXPREOPT := $(TARGET_FORCE_DEXPREOPT)
 
 # Display
 USE_OPENGL_RENDERER := true
@@ -98,6 +101,9 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/huawei/hi3660
 TARGET_KERNEL_CONFIG := hisi_3660_defconfig
 
+# Legacy LayerVector
+LEGACY_NEEDS_PUBLIC_LAYERVECTOR := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
@@ -111,9 +117,6 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 56547606528
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-# Properties
-TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
-
 # Recovery
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.hi3660
 
@@ -125,10 +128,6 @@ TARGET_RIL_VARIANT := proprietary
 
 # Enable WEBGL
 ENABLE_WEBGL := true
-
-# Vendor
-BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
-TARGET_COPY_OUT_VENDOR := system
 
 # Vendor Init
 TARGET_UNIFIED_DEVICE := true

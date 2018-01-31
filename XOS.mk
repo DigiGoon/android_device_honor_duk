@@ -23,5 +23,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-huawei
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST := ro.product.model
 
-PRODUCT_NAME := lineage_duk
+PRODUCT_NAME := XOS_duk
 TARGET_VENDOR := huawei
