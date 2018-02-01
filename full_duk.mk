@@ -20,17 +20,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
-
 # Inherit from frd device
 $(call inherit-product, device/honor/duk/device.mk)
+
+# Inherit from common Omni configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Vendor
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := full_duk
 PRODUCT_DEVICE := duk
 PRODUCT_BRAND := Honor
 PRODUCT_MANUFACTURER := HUAWEI
