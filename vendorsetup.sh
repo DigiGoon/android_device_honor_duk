@@ -1,1 +1,3 @@
-add_lunch_combo lineage_duk-userdebug
+add_lunch_combo dot_duk-user
+add_lunch_combo dot_duk-userdebug
+add_lunch_combo dot_duk-eng
